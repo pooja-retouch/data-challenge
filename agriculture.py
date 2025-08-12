@@ -16,7 +16,7 @@ product_year_value = df.groupby(['Product Name', 'Year'])['Export Value'].sum().
 first_last = product_year_value.groupby('Product Name').agg(
     first_year=('Year', 'min'),
     last_year=('Year', 'max'),
-    first_value=('Export Value', 'first'),
+    first_value=('Export Value','first'),
     last_value=('Export Value', 'last')
 ).reset_index()
 first_last['pct_increase'] = ((first_last['last_value'] - first_last['first_value']) / first_last['first_value']) * 100
